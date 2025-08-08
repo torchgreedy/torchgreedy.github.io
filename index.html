@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-image: url('background_image.png');
+            background-image: url('img/background_image.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -75,10 +75,27 @@
             text-decoration: none;
             font-size: 1rem;
             transition: color 0.3s ease;
+            position: relative;
         }
         
         nav a:hover {
             color: var(--accent-color);
+        }
+
+        /* Add underline animation for nav links */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
         }
         
         /* Profile Section */
@@ -98,6 +115,12 @@
             overflow: hidden;
             margin-bottom: 30px;
             border: 3px solid var(--accent-color);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(230, 126, 34, 0.6);
         }
         
         .profile-img img {
@@ -117,6 +140,7 @@
             color: var(--light-text);
             opacity: 0.8;
             margin: 10px 0 30px;
+            min-height: 1.4em;
         }
         
         /* Social Links */
@@ -129,11 +153,21 @@
         .social-links a {
             color: var(--light-text);
             font-size: 1.5rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
         }
         
         .social-links a:hover {
             color: var(--accent-color);
+            transform: translateY(-5px);
+            background-color: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         /* Footer */
@@ -176,7 +210,7 @@
         }
         
         .theme-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(10deg);
             opacity: 0.9;
         }
         
@@ -184,6 +218,14 @@
         .about-section {
             padding: 60px 0;
             text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .about-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .about-section h2 {
@@ -237,6 +279,14 @@
             border-radius: 8px;
         }
 
+        .tech-icons .skill-item {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .tech-icons img {
             width: 80px;
             height: 80px;
@@ -254,6 +304,14 @@
         .experience-section {
             padding: 60px 0;
             text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .experience-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .experience-section h2 {
@@ -268,11 +326,14 @@
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 30px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .experience-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .experience-header {
@@ -285,6 +346,12 @@
             width: 60px;
             height: 60px;
             margin-right: 20px;
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .experience-item:hover .company-logo {
+            transform: scale(1.1);
         }
 
         .experience-title {
@@ -314,6 +381,187 @@
             margin-bottom: 10px;
             font-size: 1.1rem;
             line-height: 1.6;
+        }
+        
+        /* Project Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: var(--secondary-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 900px;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--light-text);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-color);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .modal-title h3 {
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            color: var(--accent-color);
+        }
+
+        .modal-title p {
+            font-size: 1.2rem;
+            margin: 0;
+            color: var(--light-text);
+            opacity: 0.8;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .project-details {
+            margin-bottom: 30px;
+        }
+
+        .project-details h4 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .tech-used {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-badge {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .view-project-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .view-project-btn:hover {
+            background-color: transparent;
+            box-shadow: 0 0 0 2px var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Project Button Style */
+        .view-details-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-details-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: var(--dark-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
         }
         
         /* Responsive Design */
@@ -351,6 +599,21 @@
                 width: 60px;
                 height: 60px;
             }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .modal-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .modal-logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
         }
     </style>
     <!-- Font Awesome for icons -->
@@ -378,7 +641,6 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -390,7 +652,7 @@
                 <img src="img/favicon.png" alt="Profile Picture">
             </div>
             <h1>Xuan Truong Nguyen</h1>
-            <p class="tagline">Data Science | Data Engineering Enthusiast</p>
+            <p id="typing-text" class="tagline">Data Science | Data Engineering Enthusiast</p>
             
             <!-- Social Links -->
             <div class="social-links">
@@ -402,7 +664,7 @@
         <!-- About Section -->
         <section id="about" class="about-section">
             <h2>About Me</h2>
-            <p>I am a passionate Data Science and Data Engineering enthusiast with expertise in various programming languages and technologies.</p>
+            <p>I'm a Data Science enthusiast with a passion for turning complex problems into elegant solutions. My approach? Finding the unconventional path that others might overlook.</p>
             
             <div class="tech-stack">
                 <h3>Technical Skills</h3>
@@ -411,12 +673,24 @@
                 <div class="tech-category">
                     <h4>Programming Languages</h4>
                     <div class="tech-icons">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" title="Python" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" title="Java" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" alt="R" title="R" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" title="C" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" alt="MATLAB" title="MATLAB" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash" title="Bash" />
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" title="Python" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" title="Java" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" alt="R" title="R" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" title="C" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" alt="MATLAB" title="MATLAB" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash" title="Bash" />
+                        </div>
                     </div>
                 </div>
 
@@ -424,11 +698,21 @@
                 <div class="tech-category">
                     <h4>Machine Learning & Data Science</h4>
                     <div class="tech-icons">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg" alt="Pandas" title="Pandas" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original-wordmark.svg" alt="NumPy" title="NumPy" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" title="Scikit-learn" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svg" alt="PyTorch" title="PyTorch" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original-wordmark.svg" alt="TensorFlow" title="TensorFlow" />
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg" alt="Pandas" title="Pandas" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original-wordmark.svg" alt="NumPy" title="NumPy" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" title="Scikit-learn" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svg" alt="PyTorch" title="PyTorch" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original-wordmark.svg" alt="TensorFlow" title="TensorFlow" />
+                        </div>
                     </div>
                 </div>
 
@@ -436,12 +720,24 @@
                 <div class="tech-category">
                     <h4>Data Engineering & Cloud</h4>
                     <div class="tech-icons">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" title="PostgreSQL" />
-			<img src="snowflake-bug-color-rgb.svg" alt="Snowflake" title="Snowflake" />
-			<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain-wordmark.svg" alt="GraphQL" title="GraphQL" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original-wordmark.svg" alt="Apache Spark" title="Apache Spark" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" title="AWS" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git" title="Git" />
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" title="PostgreSQL" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="img/snowflake-bug-color-rgb.svg" alt="Snowflake" title="Snowflake" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain-wordmark.svg" alt="GraphQL" title="GraphQL" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original-wordmark.svg" alt="Apache Spark" title="Apache Spark" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" title="AWS" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git" title="Git" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -507,6 +803,7 @@
                         <li>Integrated a robust adversarial domain adaptation strategy using a Gradient Reversal Layer (GRL) and subject-specific normalization layers to mitigate inter-subject variability</li>
                         <li>Validated model generalization using rigorous Leave-One-Subject-Out (LOSO) cross-validation across 16 subjects, achieving a mean accuracy of 75.42% ± 11.15% and a best-fold accuracy of 91.11%</li>
                     </ul>
+                    <button class="view-details-btn" data-project="emotion-project">View Project Details</button>
                 </div>
             </div>
             
@@ -524,6 +821,7 @@
                         <li>Achieved 99% accuracy in weather forecasting by implementing a prediction system using KNN, Random Forest, and XGBoost algorithms, leveraging features like humidity, dew point, and pressure</li>
                         <li>Conducted time series analysis using SARIMAX model to predict future temperature trends, enhancing the accuracy of short-term weather forecasts</li>
                     </ul>
+                    <button class="view-details-btn" data-project="weather-project">View Project Details</button>
                 </div>
             </div>
         </section>
@@ -569,15 +867,105 @@
         
         <!-- Footer -->
         <footer>
+            <p>© 2025 Xuan Truong Nguyen | Last updated: 2025-08-08</p>
         </footer>
     </div>
     
-    <!-- Dark Mode Toggle Button -->
+    <!-- Project Modals -->
+    <div id="emotion-project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <img src="img/emotion_classification_project.png" alt="Emotion Classification Project Logo" class="modal-logo">
+                <div class="modal-title">
+                    <h3>Cross-Modal Transformer with Adversarial Domain Adaptation</h3>
+                    <p>March 2025 - August 2025</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="project-details">
+                    <h4>Project Overview</h4>
+                    <p>This research project focused on developing a novel deep learning approach for emotion recognition using multimodal data from EEG and eye-tracking. The key innovation was the implementation of adversarial domain adaptation to address the challenge of inter-subject variability in physiological signals.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Custom Transformer architecture with cross-modal attention mechanism</li>
+                        <li>Adversarial domain adaptation through gradient reversal layer</li>
+                        <li>Subject-specific normalization layers for improved generalization</li>
+                        <li>Feature importance visualization to interpret model decisions</li>
+                        <li>Rigorous Leave-One-Subject-Out evaluation on the SEED-V dataset across 16 subjects</li>
+                    </ul>
+                    
+                    <h4>Technologies Used</h4>
+                    <div class="tech-used">
+                        <span class="tech-badge">PyTorch</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Matplotlib</span>
+                        <span class="tech-badge">Seaborn</span>
+                    </div>
+                    
+                    <a href="https://github.com/torchgreedy/Cross-Modal-Transformer-for-Robust-Emotion-Recognition" class="view-project-btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="weather-project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <img src="img/weather_forecasting_project.jpg" alt="Weather Forecasting Project Logo" class="modal-logo">
+                <div class="modal-title">
+                    <h3>Predictive Weather Analysis</h3>
+                    <p>July 2024</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="project-details">
+                    <h4>Project Overview</h4>
+                    <p>This project aimed to create an accurate weather forecasting system by leveraging web scraping, machine learning algorithms, and time series modeling. By collecting and analyzing 12 years of historical weather data, the system can predict weather conditions with high accuracy.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Automated web scraping system to collect historical weather data</li>
+                        <li>Feature engineering to extract relevant weather patterns</li>
+                        <li>Ensemble machine learning approach combining KNN, Random Forest, and XGBoost</li>
+                        <li>Time series forecasting with SARIMAX for temperature trend prediction</li>
+                        <li>Interactive dashboard for visualization of predictions and historical patterns</li>
+                    </ul>
+                    
+                    <h4>Technologies Used</h4>
+                    <div class="tech-used">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Selenium</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">XGBoost</span>
+                        <span class="tech-badge">Statsmodels</span>
+                        <span class="tech-badge">Matplotlib</span>
+                        <span class="tech-badge">Streamlit</span>
+                    </div>
+                    
+                    <a href="https://github.com/torchgreedy/weather-prediction" class="view-project-btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Theme Toggle Button -->
     <button class="theme-toggle" aria-label="Toggle dark/light mode">
         <i class="fas fa-moon"></i>
     </button>
     
     <script>
+        // Theme Toggle functionality
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = document.querySelector('.theme-toggle i');
         const root = document.documentElement;
@@ -621,6 +1009,115 @@
             // Update icon
             themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
         }
+        
+        // Typing animation for tagline
+        const typingText = document.getElementById('typing-text');
+        const textToType = typingText.textContent;
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000;
+        
+        let charIndex = 0;
+        let isDeleting = false;
+        let textArray = [
+            "Data Science | Data Engineering Enthusiast",
+            "Machine Learning Enthusiast",
+            "AI Researcher",
+            "Python Developer"
+        ];
+        let textArrayIndex = 0;
+        
+        function typeText() {
+            const currentText = textArray[textArrayIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                // Pause at end of typing
+                isDeleting = true;
+                setTimeout(typeText, newTextDelay);
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next text after completely deleted
+                isDeleting = false;
+                textArrayIndex = (textArrayIndex + 1) % textArray.length;
+                setTimeout(typeText, typingDelay);
+            } else {
+                // Continue typing or deleting
+                setTimeout(typeText, isDeleting ? erasingDelay : typingDelay);
+            }
+        }
+        
+        // Start the typing animation after a delay
+        setTimeout(typeText, newTextDelay);
+        
+        // Scroll animations
+        const sections = document.querySelectorAll('.about-section, .experience-section');
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        
+        function checkScroll() {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight * 0.8) {
+                    section.classList.add('visible');
+                }
+            });
+            
+            // Show/hide scroll to top button
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
+        
+        // Project modals
+        const modals = document.querySelectorAll('.modal');
+        const modalBtns = document.querySelectorAll('.view-details-btn');
+        const closeBtns = document.querySelectorAll('.close-modal');
+        
+        modalBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project');
+                const modal = document.getElementById(projectId + '-modal');
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        window.addEventListener('click', function(event) {
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Scroll to top functionality
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Check scroll position on page load and scroll
+        window.addEventListener('load', checkScroll);
+        window.addEventListener('scroll', checkScroll);
     </script>
 </body>
 </html>
