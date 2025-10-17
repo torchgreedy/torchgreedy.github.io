@@ -142,6 +142,33 @@
             margin: 10px 0 30px;
             min-height: 1.4em;
         }
+
+        /* GPU Usage Styles */
+        .gpu-usage {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .gpu-label {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        #gpu-counter {
+            font-weight: bold;
+            color: var(--accent-color);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .gpu-unit {
+            color: var(--light-text);
+        }
         
         /* Social Links */
         .social-links {
@@ -590,6 +617,11 @@
                 font-size: 1.2rem;
             }
 
+            .gpu-usage {
+                flex-direction: column;
+                gap: 4px;
+            }
+
             .tech-icons {
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
                 gap: 20px;
@@ -655,7 +687,7 @@
             <p id="typing-text" class="tagline">Data Science | Data Engineering Enthusiast</p>
 	    <div class="gpu-usage">
     		<span class="gpu-label">Accumulated GPU Usage: </span>
-    		<span id="gpu-counter">1250</span>
+    		<span id="gpu-counter">0</span>
     		<span class="gpu-unit"> hours</span>
 	    </div>
             
@@ -872,7 +904,7 @@
         
         <!-- Footer -->
         <footer>
-            <p>© 2025 Xuan Truong Nguyen | Last updated: 2025-10-16</p>
+            <p>© 2025 Xuan Truong Nguyen | Last updated: 2025-08-08</p>
         </footer>
     </div>
     
@@ -970,6 +1002,47 @@
     </button>
     
     <script>
+        // GPU Counter Animation
+        function animateGPUCounter() {
+            const counter = document.getElementById('gpu-counter');
+            const target = 1250;
+            const duration = 2000; // 2 seconds
+            const startTime = Date.now();
+            
+            function updateCounter() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Use easeOutQuad for smooth deceleration
+                const easeProgress = 1 - Math.pow(1 - progress, 2);
+                const currentValue = Math.floor(easeProgress * target);
+                
+                counter.textContent = currentValue.toLocaleString();
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target.toLocaleString();
+                }
+            }
+            
+            // Use Intersection Observer to trigger animation when element is visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.dataset.animated) {
+                        entry.target.dataset.animated = 'true';
+                        updateCounter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(counter);
+        }
+        
+        // Start GPU counter animation when page loads
+        window.addEventListener('load', animateGPUCounter);
+        
         // Theme Toggle functionality
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = document.querySelector('.theme-toggle i');
@@ -1126,4 +1199,3 @@
     </script>
 </body>
 </html>
-
