@@ -167,7 +167,7 @@
         }
 
         .gpu-unit {
-            color: var(--light-text);
+            color: var(--accent-color);
         }
         
         /* Social Links */
@@ -736,6 +736,12 @@
                     <h4>Machine Learning & Data Science</h4>
                     <div class="tech-icons">
                         <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svg" alt="PyTorch" title="PyTorch" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.brandfetch.io/idSF6sgbB2/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" alt="Hugging Face" title="Hugging Face" />
+                        </div>
+                        <div class="skill-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg" alt="Pandas" title="Pandas" />
                         </div>
                         <div class="skill-item">
@@ -743,12 +749,6 @@
                         </div>
                         <div class="skill-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" title="Scikit-learn" />
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svg" alt="PyTorch" title="PyTorch" />
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original-wordmark.svg" alt="TensorFlow" title="TensorFlow" />
                         </div>
                     </div>
                 </div>
@@ -1007,9 +1007,9 @@
             const counter = document.getElementById('gpu-counter');
             const target = 1250;
             const duration = 2000; // 2 seconds
-            const startTime = Date.now();
+            const loopInterval = 3000; // 3 seconds between loops
             
-            function updateCounter() {
+            function updateCounter(startTime) {
                 const elapsed = Date.now() - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 
@@ -1020,10 +1020,15 @@
                 counter.textContent = currentValue.toLocaleString();
                 
                 if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
+                    requestAnimationFrame(() => updateCounter(startTime));
                 } else {
                     counter.textContent = target.toLocaleString();
                 }
+            }
+            
+            function startAnimation() {
+                const startTime = Date.now();
+                updateCounter(startTime);
             }
             
             // Use Intersection Observer to trigger animation when element is visible
@@ -1031,7 +1036,26 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !entry.target.dataset.animated) {
                         entry.target.dataset.animated = 'true';
-                        updateCounter();
+                        
+                        // Start the first animation
+                        startAnimation();
+                        
+                        // Set up the looping animation
+                        const loopTimer = setInterval(() => {
+                            startAnimation();
+                        }, loopInterval);
+                        
+                        // Stop the loop when element is not visible
+                        const stopObserver = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (!entry.isIntersecting) {
+                                    clearInterval(loopTimer);
+                                    stopObserver.unobserve(entry.target);
+                                }
+                            });
+                        });
+                        stopObserver.observe(counter);
+                        
                         observer.unobserve(entry.target);
                     }
                 });
