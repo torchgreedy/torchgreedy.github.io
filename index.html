@@ -189,31 +189,6 @@
             text-decoration: none;
         }
         
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent-color);
-            color: var(--dark-bg);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-        
-        .theme-toggle:hover {
-            transform: scale(1.1) rotate(10deg);
-            opacity: 0.9;
-        }
-        
         /* About Section Styles */
         .about-section {
             padding: 60px 0;
@@ -918,56 +893,8 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" aria-label="Toggle dark/light mode">
-        <i class="fas fa-moon"></i>
-    </button>
-    
     <script>
-        // Theme Toggle functionality
-        const themeToggle = document.querySelector('.theme-toggle');
-        const themeIcon = document.querySelector('.theme-toggle i');
-        const root = document.documentElement;
-        
-        // Define themes
-        const darkTheme = {
-            '--dark-bg': '#2a2a2a',
-            '--light-text': '#f5f5f5',
-            '--accent-color': '#e67e22',
-            '--secondary-bg': '#3d3d3d'
-        };
-        
-        const lightTheme = {
-            '--dark-bg': '#ffffff',
-            '--light-text': '#333333',
-            '--accent-color': '#e67e22',
-            '--secondary-bg': '#f5f5f5'
-        };
-        
-        // Check for saved preference or use dark theme as default
-        let currentTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(currentTheme);
-        
-        themeToggle.addEventListener('click', () => {
-            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(currentTheme);
-            localStorage.setItem('theme', currentTheme);
-        });
-        
-        function applyTheme(theme) {
-            const colors = theme === 'dark' ? darkTheme : lightTheme;
-            
-            // Update all CSS variables
-            Object.keys(colors).forEach(key => {
-                root.style.setProperty(key, colors[key]);
-            });
-            
-            // Keep background image the same for both themes
-            document.body.style.backgroundImage = 'url("img/background_image.webp")';
-            
-            // Update icon
-            themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-        }
+        localStorage.removeItem('theme'); // Clear any stale light-mode preference
         
         // Typing animation for tagline
         const typingText = document.getElementById('typing-text');
