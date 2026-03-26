@@ -67,7 +67,7 @@ function checkScroll() {
 
 // Project modals
 const modals = document.querySelectorAll('.modal');
-const modalBtns = document.querySelectorAll('.view-details-btn');
+const modalBtns = document.querySelectorAll('.view-details-btn[data-project]');
 const closeBtns = document.querySelectorAll('.close-modal');
 
 modalBtns.forEach(btn => {
