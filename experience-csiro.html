@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSIRO Experience Details - Xuan Truong Nguyen</title>
+    <link rel="icon" type="image/jpeg" href="img/tab_icon.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <main class="container experience-detail-page">
+        <section class="experience-section visible">
+            <div class="experience-detail-header">
+                <img src="img/CSIRO_Logo.svg" alt="CSIRO Logo" class="company-logo">
+                <h1>Machine Learning Research Intern</h1>
+                <p class="experience-detail-meta">CSIRO | Nov 2025 - Present | Kensington, WA</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-details">
+                    <h3>The Bigger Context: CSIRO and Australia's Radio Telescopes</h3>
+                    <p>
+                        CSIRO operates and supports multiple world-class radio astronomy facilities across Australia.
+                        These include ASKAP, Murriyang (the Parkes Radio Telescope), the Australia Telescope Compact
+                        Array (ATCA), the Canberra Deep Space Communication Complex (CDSCC), and the upcoming SKA-Low.
+                        Together, they enable frontier science while demanding highly reliable, 24/7 operations.
+                    </p>
+
+                    <div class="experience-gallery">
+                        <figure class="media-card">
+                            <img src="img/ASKAP.avif" alt="ASKAP radio telescope array">
+                            <figcaption>Australian Square Kilometre Array Pathfinder (ASKAP)</figcaption>
+                        </figure>
+                        <figure class="media-card">
+                            <img src="img/parkes.jpg" alt="Murriyang Parkes Radio Telescope">
+                            <figcaption>Murriyang (Parkes Radio Telescope)</figcaption>
+                        </figure>
+                        <figure class="media-card">
+                            <img src="img/ATCA.webp" alt="Australia Telescope Compact Array">
+                            <figcaption>Australia Telescope Compact Array (ATCA)</figcaption>
+                        </figure>
+                        <figure class="media-card">
+                            <img src="img/CDSCC.jpg" alt="Canberra Deep Space Communication Complex">
+                            <figcaption>Canberra Deep Space Communication Complex (CDSCC)</figcaption>
+                        </figure>
+                        <figure class="media-card">
+                            <img src="img/SKA-Low.jpg" alt="SKA-Low telescope infrastructure">
+                            <figcaption>SKA-Low (Under construction)</figcaption>
+                        </figure>
+                    </div>
+
+                    <h3>My Focus: ASKAP</h3>
+                    <p>
+                        My work focused on ASKAP. It is located inside a radio quiet zone to minimize interference
+                        from urban radio-frequency sources. In practice, however, atmospheric ducting can still carry
+                        distant radio-frequency interference (RFI) over long ranges into the telescope's observing band.
+                    </p>
+
+                    <h3>Why This Matters Operationally</h3>
+                    <figure style="margin: 15px 0 25px 0; text-align: center;">
+                        <img src="img/Pawsey.jpg" alt="Pawsey Supercomputer Centre" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 8px;">
+                        <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">The Pawsey Supercomputing Research Centre</figcaption>
+                    </figure>
+                    <p>
+                        ASKAP generates data at an enormous rate (~2.5 GB per second). Raw observations are sent through Pawsey
+                        supercomputing infrastructure for preprocessing before astronomers can use them. If strong
+                        interference is present, that data can still consume compute and storage resources first,
+                        only to be flagged or discarded later during astronomer-side RFI filtering.
+                    </p>
+
+                    <p>
+                        This creates a real cost in time, infrastructure load, and observing value. Since these
+                        facilities operate continuously, the goal is not to stop observing when ducting risk is high,
+                        but to dynamically schedule observations that are more robust to RFI and reserve critical
+                        observations for cleaner windows.
+                    </p>
+
+                    <h3>What I Built</h3>
+                    <p>
+                        I developed a predictive ducting-risk workflow for ASKAP that shifts planning from reactive
+                        response to proactive scheduling. The system provides a 12-hour rolling forecast with 1-hour
+                        resolution, offering guidance early enough to inform day-to-day observing
+                        decisions and make better use of telescope and HPC resources.
+                    </p>
+
+                    <h3>Practical Outcome</h3>
+                    <ul>
+                        <li>Better observation planning under ducting risk instead of post-event damage control.</li>
+                        <li>Lower waste of compute and analyst time on heavily corrupted data streams.</li>
+                        <li>Higher return on expensive 24/7 observing time through risk-aware allocation.</li>
+                        <li>Support for mission-critical operations by integrating forecasts into real decision workflows.</li>
+                    </ul>
+
+                    <h3>Research Manuscript</h3>
+                    <p>
+                        A manuscript link will be added here once available.
+                    </p>
+
+                    <div class="back-link">
+                        <a class="view-project-btn" href="index.html#experience">Back to Experience</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
