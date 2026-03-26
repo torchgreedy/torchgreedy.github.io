@@ -50,35 +50,42 @@
                         </figure>
                     </div>
 
-                    <h3>My Focus: ASKAP</h3>
-                    <p>
-                        My work focused on ASKAP. It is located inside a radio quiet zone to minimize interference
-                        from urban radio-frequency sources. In practice, however, atmospheric ducting can still carry
-                        distant radio-frequency interference (RFI) over long ranges into the telescope's observing band.
-                    </p>
-                    <figure style="margin: 15px 0 25px 0; text-align: center;">
-                        <img src="img/MRO_map.png" alt="Map of the Murchison Radio-astronomy Observatory" style="width: 100%; max-width: 600px; max-height: 450px; object-fit: contain; margin-bottom: 8px; filter: invert(1) hue-rotate(180deg) contrast(1.2); mix-blend-mode: screen;">
-                        <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">Inyarrimanha Ilgari Bundara, the CSIRO Murchison Radio-astronomy Observatory (Radio Quiet Zone)</figcaption>
-                    </figure>
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin-bottom: 40px;">
+                        <div style="flex: 1 1 300px;">
+                            <h3>My Focus: ASKAP</h3>
+                            <p>
+                                My work focused on ASKAP. It is located inside a radio quiet zone to minimize interference
+                                from urban radio-frequency sources. In practice, however, atmospheric ducting can still carry
+                                distant radio-frequency interference (RFI) over long ranges into the telescope's observing band.
+                            </p>
+                        </div>
+                        <figure style="flex: 1 1 300px; margin: 0; text-align: center;">
+                            <img src="img/MRO_map.png" alt="Map of the Murchison Radio-astronomy Observatory" style="width: 100%; max-height: 350px; object-fit: contain; margin-bottom: 8px; filter: invert(1) hue-rotate(180deg) contrast(1.2); mix-blend-mode: screen;">
+                            <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">Inyarrimanha Ilgari Bundara, the CSIRO Murchison Radio-astronomy Observatory</figcaption>
+                        </figure>
+                    </div>
 
-                    <h3>Why This Matters Operationally</h3>
-                    <figure style="margin: 15px 0 25px 0; text-align: center;">
-                        <img src="img/Pawsey.jpg" alt="Pawsey Supercomputer Centre" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 8px;">
-                        <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">The Pawsey Supercomputing Research Centre</figcaption>
-                    </figure>
-                    <p>
-                        ASKAP generates data at an enormous rate (~2.5 GB per second). Raw observations are sent through Pawsey
-                        supercomputing infrastructure for preprocessing before astronomers can use them. If strong
-                        interference is present, that data can still consume compute and storage resources first,
-                        only to be flagged or discarded later during astronomer-side RFI filtering.
-                    </p>
-
-                    <p>
-                        This creates a real cost in time, infrastructure load, and observing value. Since these
-                        facilities operate continuously, the goal is not to stop observing when ducting risk is high,
-                        but to dynamically schedule observations that are more robust to RFI and reserve critical
-                        observations for cleaner windows.
-                    </p>
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin-bottom: 20px;">
+                        <figure style="flex: 1 1 300px; margin: 0; text-align: center;">
+                            <img src="img/Pawsey.jpg" alt="Pawsey Supercomputer Centre" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 8px;">
+                            <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">The Pawsey Supercomputing Research Centre</figcaption>
+                        </figure>
+                        <div style="flex: 1 1 300px;">
+                            <h3>Why This Matters Operationally</h3>
+                            <p>
+                                ASKAP generates data at an enormous rate (~2.5 GB per second). Raw observations are sent through Pawsey
+                                supercomputing infrastructure for preprocessing before astronomers can use them. If strong
+                                interference is present, that data can still consume compute and storage resources first,
+                                only to be flagged or discarded later during astronomer-side RFI filtering.
+                            </p>
+                            <p>
+                                This creates a real cost in time, infrastructure load, and observing value. Since these
+                                facilities operate continuously, the goal is not to stop observing when ducting risk is high,
+                                but to dynamically schedule observations that are more robust to RFI and reserve critical
+                                observations for cleaner windows.
+                            </p>
+                        </div>
+                    </div>
 
                     <h3>What I Built</h3>
                     <p>
