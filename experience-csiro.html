@@ -92,15 +92,17 @@
                         <div style="flex: 1 1 300px;">
                             <h3>Why This Matters Operationally</h3>
                             <p>
-                                ASKAP generates data at an enormous rate (~2.5 GB per second). Raw observations are sent through Pawsey
-                                supercomputing infrastructure for preprocessing before astronomers can use them. If strong
-                                interference is present, that data can still consume compute and storage resources first,
-                                only to be flagged or discarded later during astronomer-side RFI filtering.
+                                <strong>The High Stakes of Observing Time:</strong> Astronomers can't simply turn on the telescope whenever they want. Observing time on ASKAP is highly competitive; scientists must submit proposals months in advance to a Time Allocation Committee. If their hard-won scheduled time slot unfortunately coincides with a severe ducting event, their observations can be entirely ruined by RFI.
                             </p>
                             <p>
-                                This creates a real cost in time, infrastructure load, and observing value. Since these
-                                facilities operate continuously, the goal is not to stop observing when ducting risk is high,
-                                but to dynamically schedule observations that are more robust to RFI and reserve critical
+                                Furthermore, ASKAP generates data at an enormous rate (<strong>~2.5 GB per second</strong>). Raw observations are sent through Pawsey
+                                supercomputing infrastructure for preprocessing before astronomers can use them. If strong
+                                interference is present, that data can still consume compute and storage resources first,
+                                only to be flagged or discarded later.
+                            </p>
+                            <p>
+                                This creates a real cost in missed scientific opportunities, infrastructure load, and wasted observing value. Since these
+                                facilities operate continuously, the goal is to dynamically schedule observations that are more robust to RFI and reserve critical
                                 observations for cleaner windows.
                             </p>
                         </div>
