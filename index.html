@@ -3,159 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSIRO Experience Details - X. Truong Nguyen</title>
-    <link rel="icon" type="image/jpeg" href="img/tab_icon.jpg">
+    <title>X. Truong Nguyen - Portfolio</title>
+	<link rel="icon" type="image/jpeg" href="img/tab_icon.jpg">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <main class="container experience-detail-page">
-        <section class="experience-section visible">
-            <div class="experience-detail-header">
-                <img src="img/CSIRO_Logo.svg" alt="CSIRO Logo" class="company-logo">
-                <h1>Applied Machine Learning Research</h1>
-                <p class="experience-detail-meta">CSIRO | Nov 2025 - Present | Kensington, WA</p>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <a href="#">
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓███████▓▒░       ░▒▓████████▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░       ░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓███████▓▒░  
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
+ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒▒▓███▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒▒▓███▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓██████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░   ░▒▓█▓▒░   ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+</a>
             </div>
-
-            <div class="experience-item">
-                <div class="experience-details">
-                    <!-- TL;DR Impact Summary -->
-                    <div style="background-color: rgba(var(--accent-rgb), 0.1); border: 1px solid var(--accent-color); padding: 25px; border-radius: 12px; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                        <h2 style="margin: 0 0 15px 0; color: var(--accent-color); font-size: 1.5rem;">Executive Summary (TL;DR)</h2>
-                        <p style="margin: 0; font-size: 1.15rem; line-height: 1.6; font-weight: 500;">
-                            Developed a physics-inspired forecasting engine (<strong>PID-Net</strong>) that predicts radio interference <strong>12 hours in advance</strong>, preventing data loss and optimizing scheduling for Australia’s <strong>$1B+ telescope infrastructure</strong>.
-                        </p>
-                    </div>
-
-                    <h3>The Bigger Context: CSIRO and Australia's Radio Telescopes</h3>
-                    <p>
-                        CSIRO operates and supports multiple world-class radio astronomy facilities across Australia.
-                        These include ASKAP, Murriyang (the Parkes Radio Telescope), the Australia Telescope Compact
-                        Array (ATCA), the Canberra Deep Space Communication Complex (CDSCC), and the upcoming SKA-Low.
-                        Together, they enable frontier science while demanding highly reliable, 24/7 operations.
-                    </p>
-
-                    <div class="experience-gallery">
-                        <figure class="media-card">
-                            <img src="img/ASKAP.avif" alt="ASKAP radio telescope array">
-                            <figcaption>Australian Square Kilometre Array Pathfinder (ASKAP)</figcaption>
-                        </figure>
-                        <figure class="media-card">
-                            <img src="img/parkes.jpg" alt="Murriyang Parkes Radio Telescope">
-                            <figcaption>Murriyang (Parkes Radio Telescope)</figcaption>
-                        </figure>
-                        <figure class="media-card">
-                            <img src="img/ATCA.webp" alt="Australia Telescope Compact Array">
-                            <figcaption>Australia Telescope Compact Array (ATCA)</figcaption>
-                        </figure>
-                        <figure class="media-card">
-                            <img src="img/CDSCC.jpg" alt="Canberra Deep Space Communication Complex">
-                            <figcaption>Canberra Deep Space Communication Complex (CDSCC)</figcaption>
-                        </figure>
-                        <figure class="media-card">
-                            <img src="img/SKA-Low.jpg" alt="SKA-Low telescope infrastructure">
-                            <figcaption>SKA-Low (Under construction)</figcaption>
-                        </figure>
-                    </div>
-
-                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin-bottom: 40px;">
-                        <div style="flex: 1 1 300px;">
-                            <h3>My Focus: ASKAP</h3>
-                            <p>
-                                My work focused on ASKAP. It is located inside a radio quiet zone to minimize interference
-                                from urban radio-frequency sources. In practice, however, atmospheric ducting can still carry
-                                distant radio-frequency interference (RFI) over long ranges into the telescope's observing band.
-                            </p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Profile Section -->
+        <section class="profile">
+            <div class="profile-img">
+                <img src="img/favicon.png" alt="Profile Picture">
+            </div>
+            <h1>X. Truong Nguyen</h1>
+            <p id="typing-text" class="tagline"></p>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://github.com/xtruongnguyen" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/xuan-truong-nguyen-321aa930b/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <p>I'm a Data Science enthusiast with a passion for turning complex problems into elegant solutions. My approach? Finding the unconventional path that others might overlook.</p>
+            
+            <div class="tech-stack">
+                <h3>Technical Skills</h3>
+                
+                <!-- Programming Languages -->
+                <div class="tech-category">
+                    <h4>Programming Languages</h4>
+                    <div class="tech-icons">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" title="Python" />
                         </div>
-                        <figure style="flex: 1 1 300px; margin: 0; text-align: center;">
-                            <img src="img/MRO_map.png" alt="Map of the Murchison Radio-astronomy Observatory" style="width: 100%; max-height: 350px; object-fit: contain; margin-bottom: 8px; filter: invert(1) hue-rotate(180deg) contrast(1.2); mix-blend-mode: screen;">
-                            <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">Inyarrimanha Ilgari Bundara, the CSIRO Murchison Radio-astronomy Observatory</figcaption>
-                        </figure>
-                    </div>
-
-                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin-bottom: 40px;">
-                        <figure style="flex: 1 1 300px; margin: 0; text-align: center;">
-                            <img src="img/Ducting_Diagram.gif" alt="Atmospheric Ducting Phenomenon" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 8px;">
-                            <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">Tropospheric Ducting trapping and bending RFI over the horizon</figcaption>
-                        </figure>
-                        <div style="flex: 1 1 300px;">
-                            <h3>The Problem: Atmospheric ‘Tunnels’ for Noise</h3>
-                            <p>
-                                Under normal conditions, Earth's curvature naturally blocks distant terrestrial radio signals from reaching the observatory. 
-                                However, certain weather conditions can cause a temperature inversion in the lower atmosphere, forming a refractive "duct".
-                            </p>
-                            <p>
-                                Rather than escaping into space, radio signals from coastal cities or maritime vessels get trapped in this atmospheric layer. 
-                                The duct guides these unwanted signals hundreds of kilometers over the horizon directly into the "Radio Quiet Zone" where ASKAP resides.
-                            </p>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" title="Java" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" alt="R" title="R" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" title="C" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" alt="MATLAB" title="MATLAB" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash" title="Bash" />
                         </div>
                     </div>
+                </div>
 
-                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; margin-bottom: 20px;">
-                        <div style="flex: 1 1 300px;">
-                            <h3>Why This Matters Operationally</h3>
-                            <p>
-                                <strong>The High Stakes of Observing Time:</strong> Astronomers can't simply turn on the telescope whenever they want. Observing time on ASKAP is highly competitive; scientists must submit proposals months in advance to a Time Allocation Committee. If their hard-won scheduled time slot unfortunately coincides with a severe ducting event, their observations can be entirely ruined by RFI.
-                            </p>
-                            <p>
-                                Furthermore, ASKAP generates data at an enormous rate (<strong>~2.5 GB per second</strong>). Raw observations are sent through Pawsey
-                                supercomputing infrastructure for preprocessing before astronomers can use them. If strong
-                                interference is present, that data can still consume compute and storage resources first,
-                                only to be flagged or discarded later.
-                            </p>
-                            <p>
-                                This creates a real cost in missed scientific opportunities, infrastructure load, and wasted observing value. Since these
-                                facilities operate continuously, the goal is to dynamically schedule observations that are more robust to RFI and reserve critical
-                                observations for cleaner windows.
-                            </p>
+                <!-- Machine Learning & Data Science -->
+                <div class="tech-category">
+                    <h4>Machine Learning & Data Science</h4>
+                    <div class="tech-icons">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svg" alt="PyTorch" title="PyTorch" />
                         </div>
-                        <figure style="flex: 1 1 300px; margin: 0; text-align: center;">
-                            <img src="img/Pawsey.jpg" alt="Pawsey Supercomputer Centre" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 8px;">
-                            <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">The Pawsey Supercomputing Research Centre</figcaption>
-                        </figure>
+                        <div class="skill-item">
+                            <img src="https://cdn.brandfetch.io/idSF6sgbB2/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B" alt="Hugging Face" title="Hugging Face" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg" alt="Pandas" title="Pandas" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original-wordmark.svg" alt="NumPy" title="NumPy" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" title="Scikit-learn" />
+                        </div>
                     </div>
+                </div>
 
-                    <figure style="margin: 40px 0; text-align: center;">
-                        <img src="img/flowdiagram_dark.webp" alt="Standard ASKAP Data Pipeline showing RFI waste" style="width: 100%; max-width: 800px; height: auto; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 8px; background: rgba(0,0,0,0.2); padding: 10px;">
-                        <figcaption style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">The Current Data Pipeline: How ducting RFI consumes HPC resources before being discarded.</figcaption>
-                    </figure>
-
-                    <h3>What I Built</h3>
-                    <p>
-                        I developed a predictive ducting-risk workflow for ASKAP that shifts planning from reactive
-                        response to proactive scheduling. The system provides a 12-hour rolling forecast with 1-hour
-                        resolution, offering guidance early enough to inform day-to-day observing
-                        decisions and make better use of telescope and HPC resources.
-                    </p>
-                    <p>
-                        After rigorous testing on two-and-a-half years of real observatory data, the model now delivers up to 12 hours of advance warning with solid accuracy. Even at the longest horizon, it still correctly flags the majority of ducting events. It learned the physics on its own, automatically discovering that ducting often starts at certain frequencies and spreads in a predictable “cascade,” and that ocean winds plus overnight cooling are the strongest triggers.
-                    </p>
-                    <p>
-                        Best of all, the entire model is surprisingly lightweight (<strong>under 250,000 parameters</strong>). This allows it to run in real time on ordinary hardware right at the observatory, with no supercomputer required.
-                    </p>
-
-                    <h3>Practical Outcome</h3>
-                    <ul>
-                        <li>Better observation planning under ducting risk instead of post-event damage control.</li>
-                        <li>Lower waste of compute and analyst time on heavily corrupted data streams.</li>
-                        <li>Higher return on expensive 24/7 observing time through risk-aware allocation.</li>
-                        <li>Support for mission-critical operations by integrating forecasts into real decision workflows.</li>
-                    </ul>
-
-                    <h3>Research Publication</h3>
-                    <div style="background-color: rgba(var(--accent-rgb), 0.1); border: 1px solid var(--accent-color); padding: 15px; border-radius: 8px; margin-top: 15px;">
-                        <p style="margin: 0;">
-                            <i class="fa-solid fa-pen-nib" style="margin-right: 10px; color: var(--accent-color);"></i>
-                            <strong>Manuscript Status:</strong> The research paper detailing the PID-Net architecture and the ducting-risk prediction results is currently in the final stages of internal review. It is scheduled for submission to the <em>Publications of the Astronomical Society of Australia (PASA)</em> in April 2026.
-                        </p>
-                    </div>
-
-                    <div class="back-link">
-                        <a class="view-project-btn" href="index.html#experience">Back to Experience</a>
+                <!-- Data Engineering & Cloud -->
+                <div class="tech-category">
+                    <h4>Data Engineering & Cloud</h4>
+                    <div class="tech-icons">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" title="PostgreSQL" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="img/snowflake-bug-color-rgb.svg" alt="Snowflake" title="Snowflake" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain-wordmark.svg" alt="GraphQL" title="GraphQL" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original-wordmark.svg" alt="Apache Spark" title="Apache Spark" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" title="AWS" />
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git" title="Git" />
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <h2>Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <img src="img/CSIRO_Logo.svg" alt="CSIRO Logo" class="company-logo">
+                    <div class="experience-title">
+                        <h3>Applied Machine Learning Research</h3>
+                        <p>CSIRO — Nov 2025 – Present | Kensington, WA</p>
+                    </div>
+                </div>
+                <div class="experience-details">
+                    <ul>
+                        <li>Architected "PID-Net," a physics-inspired deep learning model on the Virga HPC, transforming CSIRO's telescope scheduling from reactive detection to a proactive 12-hour predictive engine for atmospheric ducting</li>
+                        <li>Sustained high predictive accuracy across the full 12-hour horizon (0.85 AUC at 1-hr to 0.71 AUC at 12-hrs) and achieved 87.5% recall, ensuring critical interference events are preemptively identified</li>
+                        <li>Reduced Expected Calibration Error (ECE) by 82.3% (0.086 to 0.015) via Platt Scaling, ensuring model reliability for mission-critical operations without loss of discriminative power</li>
+                        <li>Selected for production deployment within CSIRO's internal forecasting infrastructure, directly optimizing radio telescope efficiency and preventing significant data loss</li>
+                        <li>Lead Author of a research manuscript currently about to be submitted to the Publications of the Astronomical Society of Australia (PASA)</li>
+                    </ul>
+                    <a href="experience-csiro.html" class="view-details-btn">View Experience Details</a>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <img src="img/lions_eye_institute.jpg" alt="Lions Eye Institute Logo" class="company-logo">
+                    <div class="experience-title">
+                        <h3>Data Engineering Intern</h3>
+                        <p>Lions Eye Institute — Jun 2025 – Sep 2025</p>
+                    </div>
+                </div>
+                <div class="experience-details">
+                    <ul>
+                        <li>Developed an end-to-end data transformation pipeline to standardize over 250,000 eye health records collected over 30 years (~60K annual visitors) using an international healthcare data model</li>
+                        <li>Cleaned, integrated, and mapped clinical data for accurate analysis and research compatibility across multiple systems</li>
+                        <li>Followed established conventions and vocabularies to support global research standards and interoperability</li>
+                        <li>Collaborated with clinical and technical teams to validate mappings and ensure data quality</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <img src="img/Wilderness_Society_Logo_2018.svg" alt="The Wilderness Society Logo" class="company-logo">
+                    <div class="experience-title">
+                        <h3>Geospatial Data Science Intern</h3>
+                        <p>The Wilderness Society — Feb 2025 – Jun 2025</p>
+                    </div>
+                </div>
+                <div class="experience-details">
+                    <ul>
+                        <li>Automated annual land cover classification (1987–2025) using unsupervised K-Means clustering on Landsat imagery with Remotior Sensus</li>
+                        <li>Conducted remote sensing analysis with Google Earth Engine and Sentinel-2/Landsat to detect long-term deforestation trends</li>
+                        <li>Generated time-series land cover maps and vectorized outputs to quantify and visualize mining footprint expansion across decades</li>
+                        <li>Analyzed spectral changes and built geospatial datasets to assess environmental impact across decades</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="experience-section">
+            <h2>Projects</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <img src="img/emotion_classification_project.png" alt="Emotion Classification Project Logo" class="company-logo">
+                    <div class="experience-title">
+                        <h3>Cross-Modal Transformer with Adversarial Domain Adaptation for Robust Emotion Recognition</h3>
+                        <p>Personal Project — Mar 2025 – Aug 2025</p>
+                    </div>
+                </div>
+                <div class="experience-details">
+                    <ul>
+                        <li>Developed a state-of-the-art deep learning model for multi-class emotion recognition (5 emotions) from concurrent EEG (Differential Entropy features) and eye-tracking data, utilizing the SEED-V dataset</li>
+                        <li>Designed and implemented a custom Transformer-based architecture featuring dedicated EEG and eye-tracking encoders, Cross-Modal Attention mechanism, and Feature Importance Modules</li>
+                        <li>Integrated a robust adversarial domain adaptation strategy using a Gradient Reversal Layer (GRL) and subject-specific normalization layers to mitigate inter-subject variability</li>
+                        <li>Validated model generalization using rigorous Leave-One-Subject-Out (LOSO) cross-validation across 16 subjects, achieving a mean accuracy of 75.42% ± 11.15% and a best-fold accuracy of 91.11%</li>
+                    </ul>
+                    <button class="view-details-btn" data-project="emotion-project">View Project Details</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="experience-section">
+            <h2>Contact</h2>
+            
+            <div class="experience-item">
+                <div class="experience-details">
+                    <div style="text-align: center; padding: 20px;">
+                        <h3 style="color: var(--light-text); margin-bottom: 30px; font-size: 1.4rem;">Get In Touch</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 40px; color: var(--light-text); opacity: 0.9;">
+                            I'm always open to discussing new opportunities, collaborations, or just having a chat about data science and technology.
+                        </p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; max-width: 400px; margin: 0 auto;">
+                            <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 8px; width: 100%;">
+                                <i class="fas fa-envelope" style="color: var(--accent-color); font-size: 1.2rem; width: 20px;"></i>
+                                <a href="mailto:nxuantruong1108@gmail.com" style="color: var(--light-text); text-decoration: none; font-size: 1.1rem;">
+                                    nxuantruong1108@gmail.com
+                                </a>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 8px; width: 100%;">
+                                <i class="fas fa-phone" style="color: var(--accent-color); font-size: 1.2rem; width: 20px;"></i>
+                                <a href="tel:+61478519594" style="color: var(--light-text); text-decoration: none; font-size: 1.1rem;">
+                                    0478 519 594
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 40px;">
+                            <div class="social-links" style="justify-content: center;">
+                                <a href="https://github.com/xtruongnguyen" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/xuan-truong-nguyen-321aa930b/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 X. Truong Nguyen | Last updated: 2026-03-24</p>
+        </footer>
+    </div>
+    
+    <!-- Project Modals -->
+    <div id="emotion-project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <img src="img/emotion_classification_project.png" alt="Emotion Classification Project Logo" class="modal-logo">
+                <div class="modal-title">
+                    <h3>Cross-Modal Transformer with Adversarial Domain Adaptation</h3>
+                    <p>March 2025 - August 2025</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="project-details">
+                    <h4>Project Overview</h4>
+                    <p>This research project focused on developing a novel deep learning approach for emotion recognition using multimodal data from EEG and eye-tracking. The key innovation was the implementation of adversarial domain adaptation to address the challenge of inter-subject variability in physiological signals.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Custom Transformer architecture with cross-modal attention mechanism</li>
+                        <li>Adversarial domain adaptation through gradient reversal layer</li>
+                        <li>Subject-specific normalization layers for improved generalization</li>
+                        <li>Feature importance visualization to interpret model decisions</li>
+                        <li>Rigorous Leave-One-Subject-Out evaluation on the SEED-V dataset across 16 subjects</li>
+                    </ul>
+                    
+                    <h4>Technologies Used</h4>
+                    <div class="tech-used">
+                        <span class="tech-badge">PyTorch</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Matplotlib</span>
+                        <span class="tech-badge">Seaborn</span>
+                    </div>
+                    
+                    <a href="https://github.com/xtruongnguyen/Cross-Modal-Transformer-for-Robust-Emotion-Recognition" class="view-project-btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script src="js/main.js"></script>
 </body>
 </html>
