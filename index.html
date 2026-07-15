@@ -216,16 +216,16 @@
                 <div class="experience-header">
                     <img src="img/emotion_classification_project.png" alt="Emotion Classification Project Logo" class="company-logo">
                     <div class="experience-title">
-                        <h3>Cross-Modal Transformer with Adversarial Domain Adaptation for Robust Emotion Recognition</h3>
-                        <p>Personal Project — Mar 2025 – Aug 2025</p>
+                        <h3>CALMER (Calibration-Aware Learned Multimodal Emotion Recognition)</h3>
+                        <p>Personal Project — Mar 2025 – Present</p>
                     </div>
                 </div>
                 <div class="experience-details">
                     <ul>
-                        <li>Developed a state-of-the-art deep learning model for multi-class emotion recognition (5 emotions) from concurrent EEG (Differential Entropy features) and eye-tracking data, utilizing the SEED-V dataset</li>
-                        <li>Designed and implemented a custom Transformer-based architecture featuring dedicated EEG and eye-tracking encoders, Cross-Modal Attention mechanism, and Feature Importance Modules</li>
-                        <li>Integrated a robust adversarial domain adaptation strategy using a Gradient Reversal Layer (GRL) and subject-specific normalization layers to mitigate inter-subject variability</li>
-                        <li>Validated model generalization using rigorous Leave-One-Subject-Out (LOSO) cross-validation across 16 subjects, achieving a mean accuracy of 75.42% ± 11.15% and a best-fold accuracy of 91.11%</li>
+                        <li>Outperformed current benchmarks with 95.2% (SEED-V) and 91.6% (SEED-VII) accuracy under Leave-One-Subject-Out validation using a multimodal transformer for EEG and eye-movement data.</li>
+                        <li>Designed a feature pipeline with frequency-band EEG encoders and temporal modeling, combined via cross-modal attention.</li>
+                        <li>Improved cross-subject generalization by +3.1% using domain adaptation and contrastive learning.</li>
+                        <li>Manuscript in preparation (target: IEEE Transactions on Affective Computing).</li>
                     </ul>
                     <button class="view-details-btn" data-project="emotion-project">View Project Details</button>
                 </div>
@@ -284,22 +284,21 @@
             <div class="modal-header">
                 <img src="img/emotion_classification_project.png" alt="Emotion Classification Project Logo" class="modal-logo">
                 <div class="modal-title">
-                    <h3>Cross-Modal Transformer with Adversarial Domain Adaptation</h3>
-                    <p>March 2025 - August 2025</p>
+                    <h3>CALMER (Calibration-Aware Learned Multimodal Emotion Recognition)</h3>
+                    <p>March 2025 - Present</p>
                 </div>
             </div>
             <div class="modal-body">
                 <div class="project-details">
                     <h4>Project Overview</h4>
-                    <p>This research project focused on developing a novel deep learning approach for emotion recognition using multimodal data from EEG and eye-tracking. The key innovation was the implementation of adversarial domain adaptation to address the challenge of inter-subject variability in physiological signals.</p>
+                    <p>This personal research project (CALMER) focuses on developing a novel deep learning approach for emotion recognition using multimodal data from EEG and eye-tracking. The key innovation is a calibration-aware transformer architecture with domain adaptation and contrastive learning to enhance cross-subject generalization.</p>
                     
                     <h4>Key Features</h4>
                     <ul>
-                        <li>Custom Transformer architecture with cross-modal attention mechanism</li>
-                        <li>Adversarial domain adaptation through gradient reversal layer</li>
-                        <li>Subject-specific normalization layers for improved generalization</li>
-                        <li>Feature importance visualization to interpret model decisions</li>
-                        <li>Rigorous Leave-One-Subject-Out evaluation on the SEED-V dataset across 16 subjects</li>
+                        <li>Outperformed current benchmarks with 95.2% (SEED-V) and 91.6% (SEED-VII) accuracy under Leave-One-Subject-Out validation using a multimodal transformer for EEG and eye-movement data.</li>
+                        <li>Designed a feature pipeline with frequency-band EEG encoders and temporal modeling, combined via cross-modal attention.</li>
+                        <li>Improved cross-subject generalization by +3.1% using domain adaptation and contrastive learning.</li>
+                        <li>Manuscript in preparation (target: IEEE Transactions on Affective Computing).</li>
                     </ul>
                     
                     <h4>Technologies Used</h4>
