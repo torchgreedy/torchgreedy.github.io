@@ -35,7 +35,7 @@
                             <polygon points="0 0, 10 3.5, 0 7" fill="var(--accent-color, #e67e22)" />
                         </marker>
                     </defs>
-                    <path id="arrow-path" fill="none" stroke="var(--accent-color, #e67e22)" stroke-width="2.5" stroke-dasharray="6,6" marker-end="url(#arrowhead)" />
+                    <path id="arrow-path" style="opacity: 0; transition: opacity 0.5s ease-in-out;" fill="none" stroke="var(--accent-color, #e67e22)" stroke-width="2.5" stroke-dasharray="6,6" marker-end="url(#arrowhead)" />
                 </svg>
                 <div class="experience-details">
                     <!-- TL;DR Impact Summary -->
@@ -232,6 +232,19 @@
             // Re-run after a small delay in case fonts or images load and shift layout
             setTimeout(updateArrow, 500);
             window.addEventListener('load', updateArrow);
+
+            // Intersection Observer to only show arrow when focus section is in view for the first time
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        path.style.opacity = '1';
+                        observer.unobserve(header); // Keep it visible after first appearance
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            observer.observe(header);
         });
     </script>
 </body>
